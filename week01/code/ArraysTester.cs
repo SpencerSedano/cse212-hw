@@ -39,7 +39,46 @@ public static class ArraysTester {
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        return new double[0]; // replace this return statement with your own
+        // To my understanding, I have a number and a length, I need to multiply the
+        // number by the length to get the last number.
+        // Then, I can reduce the number times the length until get 0
+        // or I can do the opposite, starting at 0, and go up till the number given by number * length
+
+        // Creating my array of doubles
+        var result = new double[length];
+
+        int counterPositive = 0;
+        int counterNegative = 0;
+
+        // First, I will create a for loop
+        if (number > 0)
+        {
+            for (double i = 0; i <= number * length; i += number)
+            {
+                if (i == 0)
+                {
+                    continue;
+                }
+                result[counterPositive] = i;
+                counterPositive++;
+            }
+        }  
+
+        if (number < 0)
+        {
+            for (double i = 0; i >= number * length; i += number)
+            {
+                if (i == 0)
+                {
+                    continue;
+                }
+                result[counterNegative] = i;
+                counterNegative++;
+            }
+        } 
+
+
+        return result;
     }
     
     /// <summary>
