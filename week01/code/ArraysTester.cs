@@ -47,37 +47,51 @@ public static class ArraysTester {
         // Creating my array of doubles
         var result = new double[length];
 
+       // Because I will use the i variable to get the multiples, I need another variable to track 
+       // the index, and because I have two loops, I am creating two variables
         int counterPositive = 0;
         int counterNegative = 0;
 
-        // First, I will create a for loop
+        // First, I will create a for loop for positive numbers
         if (number > 0)
         {
+            // my i variable will loop through the multiples, it will add number to i each iteration
             for (double i = 0; i <= number * length; i += number)
             {
+                // I do not need to add 0 to my iteration, so I skip it using continue
                 if (i == 0)
                 {
                     continue;
                 }
+                // counterPositive variable is keeping track of the index and incrementing by 1
+                // through each iteration
                 result[counterPositive] = i;
                 counterPositive++;
             }
         }  
 
+        // I create a for loop for negative numbers
         if (number < 0)
         {
+            // my i variable will loop through the multiples, it will add number to i each iteration
+            // NOTE: Because it's a negative number, the i will be greater than number * length
+            // and there is no need to write i -= number, because number is already negative 
+            // if I write i -= number, we'll get a positive number in the result.
             for (double i = 0; i >= number * length; i += number)
             {
+                // I do not need to add 0 to my iteration, so I skip it using continue
                 if (i == 0)
                 {
                     continue;
                 }
+                // counterPositive variable is keeping track of the index and incrementing by 1
+                // through each iteration
                 result[counterNegative] = i;
                 counterNegative++;
             }
         } 
 
-
+        // Returning my array of doubles
         return result;
     }
     
