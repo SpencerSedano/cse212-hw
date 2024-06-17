@@ -120,7 +120,8 @@ public static class ArraysTester {
 
         // I have a list of integers and an integer as parameters (data, amount)
 
-        
+        // Edge cases, when there is no need to rotate, this will return the same list. For example,
+        // if the amount is the same as the data.Count, it will return the same list.
         amount %= data.Count;
         if (amount == 0)
         {
