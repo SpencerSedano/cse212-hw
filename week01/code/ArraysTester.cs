@@ -135,8 +135,11 @@ public static class ArraysTester {
         // Insert the sublist at the beginning of the original list
         data.InsertRange(0, sublist);
 
+
         // Delete the remainder elements of the list (I am removing the original elements of sublist because I already added the sublist at the beginning)
-        data.RemoveRange(startIndex, amount);
+        // I added removingRange variable to count again because a new set of numbers have been added to the list
+        int removingRange = data.Count - amount;
+        data.RemoveRange(removingRange, amount);
 
     }
 }
