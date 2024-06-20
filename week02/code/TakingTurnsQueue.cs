@@ -31,11 +31,18 @@ public class TakingTurnsQueue {
     /// </summary>
     public void GetNextPerson() {
         if (_people.IsEmpty())
-            Console.WriteLine("No one in the queue.");
-        else {
+            throw new InvalidOperationException("EMPTY QUEUE");
+        else
+        {
             Person person = _people.Dequeue();
-            if (person.Turns > 1) {
+
+            if (person.Turns > 1)
+            {
                 person.Turns -= 1;
+                _people.Enqueue(person);
+            }
+            if (person.Turns <= 0)
+            {
                 _people.Enqueue(person);
             }
 

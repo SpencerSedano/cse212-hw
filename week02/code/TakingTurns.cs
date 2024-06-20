@@ -1,4 +1,6 @@
-﻿public static class TakingTurns {
+﻿using System.Runtime.CompilerServices;
+
+public static class TakingTurns {
     public static void Test() {
         // TODO Problem 1 - Run test cases and fix the code to match requirements
         // Test Cases
@@ -12,10 +14,12 @@
         players.AddPerson("Bob", 2);
         players.AddPerson("Tim", 5);
         players.AddPerson("Sue", 3);
-        // Console.WriteLine(players);    // This can be un-commented out for debug help
+        Console.WriteLine(players.Length);    // This can be un-commented out for debug help
         while (players.Length > 0)
             players.GetNextPerson();
         // Defect(s) Found: 
+        // Test 1 was enqueuing wrong, instead of inserting in the last spot of the queue, it was
+        // inserting at the beginning, index 0.
 
         Console.WriteLine("---------");
 
@@ -30,15 +34,16 @@
         players.AddPerson("Sue", 3);
         for (int i = 0; i < 5; i++) {
             players.GetNextPerson();
-            // Console.WriteLine(players);
+            Console.WriteLine(players);
         }
 
         players.AddPerson("George", 3);
-        // Console.WriteLine(players);
+        Console.WriteLine(players);
         while (players.Length > 0)
             players.GetNextPerson();
 
-        // Defect(s) Found: 
+        // Defect(s) Found:
+        // The program is outputing Sue first when Bob needs to be the first output
 
         Console.WriteLine("---------");
 
@@ -56,7 +61,9 @@
             players.GetNextPerson();
             // Console.WriteLine(players);
         }
-        // Defect(s) Found: 
+        // Defect(s) Found:
+        //Tim needs to be the last one and now Sue is the last one
+        //There must be a problem with Tim having 0 turns, Tim only shows once in the output
 
         Console.WriteLine("---------");
 
@@ -74,6 +81,8 @@
             // Console.WriteLine(players);
         }
         // Defect(s) Found: 
+        // I guess it was a similar problem with Test 3. I added an if statement to make sure
+        // 0 or negative numbers will be enqueue
 
         Console.WriteLine("---------");
 
@@ -84,5 +93,6 @@
         players = new TakingTurnsQueue();
         players.GetNextPerson();
         // Defect(s) Found:
+        // It says No one in the queue but does not show any error message
     }
 }
