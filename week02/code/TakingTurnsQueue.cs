@@ -31,7 +31,7 @@ public class TakingTurnsQueue {
     /// </summary>
     public void GetNextPerson() {
         if (_people.IsEmpty())
-            throw new InvalidOperationException("EMPTY QUEUE");
+            throw new IndexOutOfRangeException("EMPTY QUEUE");
         else
         {
             Person person = _people.Dequeue();
