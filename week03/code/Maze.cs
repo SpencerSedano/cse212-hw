@@ -29,23 +29,69 @@ public class Maze {
     /// can't move, then display "Can't go that way!"
     /// </summary>
     public void MoveLeft() {
-        // FILL IN CODE
-    }
+
+            var moveToLeft = (_currX  - 1, _currY);
+
+            if (_mazeMap.ContainsKey(moveToLeft))
+            {
+                _currX -= 1;
+            }
+            else
+            {
+                Console.WriteLine("Can't go that way!");
+            }
+
+        }
+
+
 
     /// <summary>
     /// Check to see if you can move right.  If you can, then move.  If you
     /// can't move, then display "Can't go that way!"
     /// </summary>
     public void MoveRight() {
-        // FILL IN CODE
-    }
+        
+
+            var moveToRight = (_currX + 1, _currY);
+
+            if (_mazeMap.ContainsKey(moveToRight))
+            {
+                _currX += 1;
+
+            }
+            else
+            {
+                Console.WriteLine("Can't go that way!");
+
+            }
+
+        }
+
+
 
     /// <summary>
     /// Check to see if you can move up.  If you can, then move.  If you
     /// can't move, then display "Can't go that way!"
     /// </summary>
     public void MoveUp() {
-        // FILL IN CODE
+        
+         
+
+            var moveToUp = (_currX, _currY - 1);
+
+            if (_mazeMap.ContainsKey(moveToUp))
+            {
+                _currY -= 1;
+
+            }
+            else
+            {
+                Console.WriteLine("Can't go that way!");
+
+            }
+
+
+
     }
 
     /// <summary>
@@ -53,7 +99,23 @@ public class Maze {
     /// can't move, then display "Can't go that way!"
     /// </summary>
     public void MoveDown() {
-        // FILL IN CODE
+       
+
+            var moveToDown = (_currX, _currY + 1);
+
+            if (_mazeMap.ContainsKey(moveToDown))
+            {
+                _currY += 1;
+
+            }
+            else
+            {
+                Console.WriteLine("Can't go that way!");  
+
+            }
+
+
+
     }
 
     public void ShowStatus() {

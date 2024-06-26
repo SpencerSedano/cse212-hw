@@ -190,7 +190,53 @@ public static class SetsAndMapsTester {
     /// #############
     private static bool IsAnagram(string word1, string word2) {
         // Todo Problem 3 - ADD YOUR CODE HERE
-        return false;
+        Dictionary<char, int> myDictionary = new Dictionary<char, int>();
+
+        string word1Lowered = word1.ToLower();
+        string word2Lowered = word2.ToLower();
+
+        word1Lowered = word1Lowered.Replace(" ", "");
+        word2Lowered = word2Lowered.Replace(" ", "");
+
+        if(word1Lowered.Length != word2Lowered.Length)
+        {
+            return false;
+        }
+
+        for(int i = 0; i < word1Lowered.Length; i++)
+        {
+            if(myDictionary.ContainsKey(word1Lowered[i]))
+            {
+                myDictionary[word1Lowered[i]] += 1;
+            }
+
+            else
+            {
+                myDictionary.Add(word1Lowered[i], 1);
+            }
+        }
+
+        for(int i = 0; i < word2Lowered.Length; i++)
+        {
+            if(myDictionary.ContainsKey(word2Lowered[i]))
+            {
+                myDictionary[word2Lowered[i]] -= 1;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        foreach(KeyValuePair<char, int> myDict in myDictionary)
+        {
+            if(myDict.Value != 0)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     /// <summary>
@@ -235,6 +281,9 @@ public static class SetsAndMapsTester {
             { (6, 5), new[] { false, false, false, false } },
             { (6, 6), new[] { true, false, false, false } }
         };
+
+        
+
         return map;
     }
 
