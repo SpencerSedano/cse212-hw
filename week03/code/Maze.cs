@@ -74,9 +74,6 @@ public class Maze {
     /// can't move, then display "Can't go that way!"
     /// </summary>
     public void MoveUp() {
-        
-         
-
             var moveToUp = (_currX, _currY - 1);
 
             if (_mazeMap.ContainsKey(moveToUp))

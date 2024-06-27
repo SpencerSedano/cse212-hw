@@ -312,6 +312,14 @@ public static class SetsAndMapsTester {
 
         var featureCollection = JsonSerializer.Deserialize<FeatureCollection>(json, options);
 
+
+        foreach (var feature in featureCollection.Features)
+        {
+            string place = feature.Properties.Place;
+            double mag = feature.Properties.Mag;
+            Console.WriteLine($"{place} - Mag {mag}");
+        }
+
         // TODO:
         // 1. Add code in FeatureCollection.cs to describe the JSON using classes and properties 
         // on those classes so that the call to Deserialize above works properly.
