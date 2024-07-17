@@ -1,4 +1,6 @@
 using System.Collections;
+using System.ComponentModel;
+using System.Net;
 
 public class BinarySearchTree : IEnumerable<int> {
     private Node? _root;
@@ -13,6 +15,7 @@ public class BinarySearchTree : IEnumerable<int> {
         if (_root is null)
             _root = newNode;
         // If the list is not empty, then only head will be affected.
+        
         else
             _root.Insert(value);
     }
@@ -66,6 +69,16 @@ public class BinarySearchTree : IEnumerable<int> {
 
     private void TraverseBackward(Node? node, List<int> values) {
         // TODO Problem 3
+        if(node == null)
+        {
+            return;
+        }
+
+        TraverseBackward(node.Right, values);
+
+        values.Add(node.Data);
+
+        TraverseBackward(node.Left, values);
     }
 
     /// <summary>
